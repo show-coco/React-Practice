@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Color from "../molecules/Color";
-import { ColorContext } from "../..";
+import { ColorContext } from "../../provider/ColorProvider";
 
 type Props = {
   onRemoveColor?: (id: string) => void;

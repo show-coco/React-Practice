@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       {/* <MenuPage /> */}
-      <ColorList />
       <AddColorForm />
+      <ColorList />
     </div>
   );
 }
