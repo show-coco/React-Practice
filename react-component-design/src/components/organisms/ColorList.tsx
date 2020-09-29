@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Color from "../molecules/Color";
-import { Colors } from "../../App";
+import { ColorContext } from "../..";
 
 type Props = {
-  colors: Colors;
-  onRemoveColor: (id: string) => void;
-  onRateColor: (id: string, rating: number) => void;
+  onRemoveColor?: (id: string) => void;
+  onRateColor?: (id: string, rating: number) => void;
 };
 
-const ColorList: React.FC<Props> = ({ colors, onRemoveColor, onRateColor }) => {
+const ColorList: React.FC<Props> = ({
+  onRemoveColor = () => {},
+  onRateColor = () => {},
+}) => {
+  const { colors } = useContext(ColorContext);
   if (!colors.length) return <div>No Colors Listed.</div>;
   return (
     <div>

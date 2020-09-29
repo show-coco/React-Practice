@@ -1,12 +1,19 @@
-import React from "react";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import colors from "./color-data.json";
+
+export type Colors = typeof colors;
+
+export const ColorContext = createContext({ colors });
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ColorContext.Provider value={{ colors }}>
+      <App />
+    </ColorContext.Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
