@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { SIGN_IN } from ".";
+import { SIGN_IN } from "..";
 
 const Form: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -21,8 +21,9 @@ const Form: React.FC = () => {
     });
     if (!res.data.length) {
       console.log("ログイン成功");
+    } else {
+      console.log("ログイン失敗");
     }
-    console.log("ログイン失敗");
   };
 
   return (

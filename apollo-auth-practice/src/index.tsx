@@ -9,8 +9,8 @@ import {
   ApolloProvider,
   gql,
 } from "@apollo/client";
-import { resolvers } from "./resolver";
-import { typeDefs } from "./schema";
+import { resolvers } from "./apollo/resolver";
+import { typeDefs } from "./apollo/schema";
 
 export const SIGN_IN = gql`
   mutation SignIn($email: String!, $password: String!) {
