@@ -7,11 +7,23 @@ import ColorList from "./components/organisms/ColorList";
 export type Colors = typeof colorData;
 
 function App() {
-  const [colors] = useState<Colors>(colorData);
+  const [colors, setColors] = useState<Colors>(colorData);
   return (
     <div className="App">
       {/* <MenuPage /> */}
-      <ColorList colors={colors} />
+      <ColorList
+        colors={colors}
+        onRemoveColor={(id: string) => {
+          const newColors = colors.filter((color) => color.id !== id);
+          setColors(newColors);
+        }}
+        onRateColor={(id: string, rating: number) => {
+          const newColors = colors.map((color) =>
+            color.id === id ? { ...color, rating } : color
+          );
+          setColors(newColors);
+        }}
+      />
     </div>
   );
 }
