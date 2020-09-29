@@ -3,6 +3,7 @@ import "./App.css";
 // import MenuPage from "./components/pages/MenuPage";
 import colorData from "./color-data.json";
 import ColorList from "./components/organisms/ColorList";
+import AddColorForm from "./components/organisms/AddColorForm";
 
 export type Colors = typeof colorData;
 
@@ -24,6 +25,9 @@ function App() {
           setColors(newColors);
         }}
       />
+      {/* <AddColorForm onNewColor={(title, color) => {
+        setColors([...colors, {color, title, }])
+      }}/> */}
     </div>
   );
 }

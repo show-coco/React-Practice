@@ -1,11 +1,16 @@
 # React Component Design Labo
 
-React のコンポーネント設計を試行錯誤する場所
+Let's study React Component Design
 
-## Compound Component
+## Compound Components
 
 [React Hooks: Compound Components](https://kentcdodds.com/blog/compound-components-with-react-hooks)
 
-## Pure Component
+## Pure Components
 
 Pure component is a function component that does not contain state and will render the same user intarface given the same props.
+
+## Controlled Components
+
+Controlled components can build forms simply without refs. But it rerender many times.
+So we should not add some long and expensive process to this component.
