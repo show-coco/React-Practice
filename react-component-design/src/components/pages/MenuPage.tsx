@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "../molecules/Menu";
 
+// Compound Component
 const MenuPage = (): JSX.Element => {
   return (
     <Menu>

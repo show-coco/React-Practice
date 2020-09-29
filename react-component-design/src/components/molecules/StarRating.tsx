@@ -6,6 +6,7 @@ type Props = {
   selectedStars: number;
 };
 
+// Pure Component
 const StarRating: React.FC<Props> = ({ totalStars, selectedStars }) => {
   return (
     <>
