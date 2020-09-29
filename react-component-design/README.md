@@ -14,3 +14,8 @@ Pure component is a function component that does not contain state and will rend
 
 Controlled components can build forms simply without refs. But it rerender many times.
 So we should not add some long and expensive process to this component.
+
+## Custom Hooks
+
+Copying and pasting code suggests that there's something redundant enough to abstract away in function.
+Custom hooks abstracts something redundant with React Hooks.

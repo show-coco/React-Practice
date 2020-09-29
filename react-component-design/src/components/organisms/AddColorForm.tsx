@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useInput } from "../hooks/useInput";
 
 type Props = {
   onNewColor: (title: string, color: string) => void;
@@ -6,25 +7,25 @@ type Props = {
 
 // Controlled Components
 const AddColorForm: React.FC<Props> = ({ onNewColor }) => {
-  const [title, setTitle] = useState("");
-  const [color, setColor] = useState("#000000");
+  const [titleProps, resetTitle] = useInput("");
+  const [colorProps, resetColor] = useInput("#000000");
 
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onNewColor(title, color);
-    setTitle("");
-    setColor("");
+    onNewColor(titleProps.value, colorProps.value);
+    resetTitle();
+    resetColor();
   };
 
   return (
     <form onSubmit={submit}>
       <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        {...titleProps}
         type="text"
         placeholder="color title..."
         required
       />
+      <input {...colorProps} type="text" required />
     </form>
   );
 };
