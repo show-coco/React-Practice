@@ -26,6 +26,7 @@ const AddColorForm: React.FC<Props> = ({ onNewColor }) => {
         required
       />
       <input {...colorProps} type="text" required />
+      <button>ADD</button>
     </form>
   );
 };

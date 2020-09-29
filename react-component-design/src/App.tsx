@@ -4,6 +4,7 @@ import "./App.css";
 import colorData from "./color-data.json";
 import ColorList from "./components/organisms/ColorList";
 import AddColorForm from "./components/organisms/AddColorForm";
+import { getUniqueStr } from "./utils/uuid";
 
 export type Colors = typeof colorData;
 
@@ -25,9 +26,14 @@ function App() {
           setColors(newColors);
         }}
       />
-      {/* <AddColorForm onNewColor={(title, color) => {
-        setColors([...colors, {color, title, }])
-      }}/> */}
+      <AddColorForm
+        onNewColor={(title, color) => {
+          setColors([
+            ...colors,
+            { id: getUniqueStr(), rating: 0, color, title },
+          ]);
+        }}
+      />
     </div>
   );
 }
