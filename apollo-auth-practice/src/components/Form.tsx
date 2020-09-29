@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { SIGN_IN } from "..";
+import { SIGN_IN } from "../graphql/mutations/signIn";
 
 const Form: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -11,15 +11,17 @@ const Form: React.FC = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error.message}</p>;
 
+  const getVariables = () => ({
+    email,
+    password,
+  });
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await signIn({
-      variables: {
-        email,
-        password,
-      },
+      variables: getVariables(),
     });
-    if (!res.data.length) {
+    if (res.data.length) {
       console.log("ログイン成功");
     } else {
       console.log("ログイン失敗");
