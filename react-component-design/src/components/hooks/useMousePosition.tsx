@@ -1,5 +1,4 @@
 import { useState, useLayoutEffect } from "react";
-import { WSAEINVALIDPROCTABLE } from "constants";
 
 export const useMousePosition = () => {
   const [x, setX] = useState(0);
@@ -13,7 +12,7 @@ export const useMousePosition = () => {
   useLayoutEffect(() => {
     window.addEventListener("mousemove", setPosition);
     return () => window.removeEventListener("mousemove", setPosition);
-  }, [])
+  }, []);
 
   return [x, y];
 };
