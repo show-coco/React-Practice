@@ -5,6 +5,7 @@ import ColorList from "./components/organisms/ColorList";
 import AddColorForm from "./components/organisms/AddColorForm";
 import WordCount from "./components/molecules/WordCount";
 import Cat from "./components/atoms/Cat";
+import Checkbox from "./components/molecules/Checkbox";
 
 function App() {
   const [cats, setCats] = useState(["bdidae", "aeJugnel", "outlow"]);
@@ -15,6 +16,7 @@ function App() {
       {/* <WordCount children="avevae veaveve" />
       <AddColorForm />
       <ColorList /> */}
+      {/* <Checkbox /> */}
       {cats.map((name, i) => (
         <Cat key={i} name={name} />
       ))}
