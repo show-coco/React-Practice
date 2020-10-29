@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 const Cat: React.FC<{ name: string }> = ({ name }) => {
-  console.log(`rendering ${name}`);
+  useCallback(() => console.log(`rendering ${name}`), [name]);
+
   return <p>{name}</p>;
 };
 
-export default Cat;
+const PureCat = React.memo(Cat);
+
+export default PureCat;
